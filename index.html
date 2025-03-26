@@ -3,25 +3,44 @@
 <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:115%;font-size:16px;font-family:"Aptos",sans-serif;'><strong><span style="font-size:27px;line-height:115%;color:#002060;">Prompts:</span></strong></p>
  <div id="prompt">Create an image of a [BOY/GIRL] that has [DESCRIBE COLOR AND LENGTH OF] hair and is wearing [DESCRIBE CLOTHES] in the format of a [LEGO TOY / SIMPSONS CHARACTER / MARVEL UNIVERSE CHARACTER]. Have them standing in front of a [TYPE OF] building with a Microsoft logo.</div>
 <br>
+    <style>
+        button {
+            padding: 20px 40px; /* Makes the button larger */
+            font-size: 18px; /* Bigger text for readability */
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px; /* Slight rounding for aesthetics */
+            width: 90%; /* Adjust width for better visibility on mobile devices */
+            max-width: 400px; /* Limits button width on larger screens */
+            margin: 20px auto; /* Centers the button */
+            display: block; /* Ensures it appears as a block element */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
     <button onclick="copiarTexto()">Copy Prompt</button>
+
     <script>
         function copiarTexto() {
-            // Selecciona el texto del div
+            // Select the text from the div
             const texto = document.getElementById("prompt").textContent;
 
-            // Crea un elemento temporal para copiar el texto
+            // Create a temporary element to copy the text
             const textarea = document.createElement("textarea");
             textarea.value = texto;
             document.body.appendChild(textarea);
 
-            // Copia el texto al portapapeles
+            // Copy the text to clipboard
             textarea.select();
             document.execCommand("copy");
 
-            // Elimina el elemento temporal
+            // Remove the temporary element
             document.body.removeChild(textarea);
 
-            // Opcional: Notificación visual
+            // Optional: Visual notification
             alert("Prompt has been copied to your clipboard!");
         }
     </script>
